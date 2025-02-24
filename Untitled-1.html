@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<!-- VIBHAVA WEBSITE -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee</title>
+    
+    <!-- Linking Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <!-- Linking CSS (Pastikan Path Relatif Benar) -->
+    <style>
+        /* Importing Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Miniver&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    /* Colors */
+    --white-color: #fff;
+    --dark-color: #252525;
+    --primary-color: #3b141c;
+    --secondary-color: #f3961c;
+    --light-pink-color: #faf4f5;
+    --medium-gray-color: #ccc;
+
+    /* Font Size */
+    --font-size-s: 0.9rem;
+    --font-size-n: 1rem;
+    --font-size-m: 1.12rem;
+    --font-size-l: 1.5rem;
+    --font-size-xl: 2rem;
+    --font-size-xxl: 2.3rem;
+
+    /* Font Weight */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Border Radius */
+    --border-radius-s: 8px;
+    --border-radius-m: 30px;
+    --border-radius-circle: 50%;
+
+    /* Site max width */
+    --site-max-width: 1300px;
+}
+
+/* Global Styling */
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.section-content {
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: var(--site-max-width);
+}
+
+.section-title{
+    text-align: center;
+    padding: 60px 0 100px;
+    text-transform: uppercase;
+    font-size: var(--font-size-xl);
+}
+
+.section-title::after{
+    content: "";
+    width: 80px;
+    height: 5px;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: var(--border-radius-s);
+    background: var(--secondary-color);
+}
+
+/* Navbar Styling */
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+    background: var(--primary-color);
+    top: 0;
+}
+
+header .navbar {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .nav-logo .logo-text {
+    color: var(--white-color);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+}
+
+.navbar .nav-menu {
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.navbar .nav-menu .nav-link {
+    padding: 10px 18px;
+    color: var(--white-color);
+    font-size: var(--font-size-m);
+    background: var(--secondary-color);
+    border-radius: var(--border-radius-m);
+    transition: 0.3s ease;
+}
+
+.navbar :where(#menu-close-button, #menu-open-button){
+    display: none;
+}
+
+.navbar .nav-menu .nav-link:hover {
+    color: var(--primary-color);
+    background: var(--white-color);
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.hero-section .section-content {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--white-color);
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.hero-section .hero-details {
+    max-width: 50%;
+}
+
+.hero-section .hero-details .title {
+    font-size: var(--font-size-xxl);
+    color: var(--white-color);
+    font-family: "Miniver", sans-serif;
+}
+
+.hero-section .hero-details .subtitle {
+    margin-top: 8px;
+    max-width: 70%;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+}
+
+.hero-section .hero-details .description {
+    max-width: 70%;
+    margin: 24px 0 40px;
+    font-size: var(--font-size-m);
+}
+
+.hero-section .hero-details .buttons {
+    display: flex;
+    gap: 23px;
+}
+
+.hero-section .hero-details .button {
+    padding: 10px 26px;
+    border: 2px solid var(--secondary-color);
+    color: var(--primary-color);
+    border-radius: var(--border-radius-m);
+    background: var(--secondary-color);
+    font-weight: var(--font-weight-medium);
+    transition: 0.3s ease;
+}
+
+.hero-section .hero-details .button:hover, .hero-section .hero-details .contact-us {
+    color: var(--white-color);
+    border-color: var(--white-color);
+    background: transparent;
+}
+
+.hero-section .hero-details .contact-us:hover{
+    color: var(--primary-color);
+    border-color: var(--secondary-color);
+    background: var(--secondary-color);
+}
+
+.hero-section .hero-image-wrapper {
+    max-width: 500px;
+    margin-right: 30px;
+}
+
+.hero-section .hero-image-wrapper img {
+    border-radius: var(--border-radius-m);
+}
+
+/*About section styling*/
+/* About Section Styling */
+.about-section {
+    padding: 80px 0;
+    background: var(--light-pink-color);
+}
+
+/* Kontainer flex untuk konten */
+.about-section .section-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+/* Styling untuk gambar */
+.about-section .about-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-section .about-image-wrapper .about-image {
+    width: 250px; /* Ukuran gambar lebih kecil */
+    height: 250px; 
+    object-fit: cover;
+    border-radius: var(--border-radius-circle);
+    border: 5px solid var(--white-color);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease-in-out;
+}
+
+/* Efek hover pada gambar */
+.about-section .about-image-wrapper .about-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Detail teks */
+.about-section .about-details {
+    max-width: 60%;
+}
+
+.about-section .about-details .section-title {
+    padding: 0;
+}
+
+.about-section .about-details .text {
+    line-height: 28px;
+    margin: 30px 0 20px;
+    font-size: var(--font-size-m);
+}
+
+/* Styling ikon sosial media */
+.about-section .social-link-list {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px; /* Jarak dari paragraf */
+}
+
+.about-section .social-link-list .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: var(--border-radius-circle);
+    background: var(--white-color);
+    color: var(--primary-color);
+    font-size: var(--font-size-m);
+    transition: 0.3s ease;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Efek hover untuk ikon */
+.about-section .social-link-list .social-link:hover {
+    background: var(--secondary-color);
+    color: var(--white-color);
+    transform: translateY(-3px);
+}
+
+/* Responsive untuk layar kecil */
+@media screen and (max-width: 900px) {
+    .about-section .section-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-section .about-details {
+        max-width: 90%;
+    }
+
+    .about-section .about-image-wrapper .about-image {
+        width: 200px; /* Gambar lebih kecil di layar kecil */
+        height: 200px;
+    }
+}
+
+
+/*Menu section styling*/
+.menu-section {
+    color: var(--white-color);
+    background: var(--dark-color);
+    padding: 50px 0 100px;
+    text-align: center;
+}
+
+/* Menyesuaikan daftar menu */
+.menu-section .menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styling menu item */
+.menu-section .menu-list .menu-item {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(100% / 3 - 50px);
+    padding: 20px;
+    border-radius: var(--border-radius-m);
+    background: rgba(255, 255, 255, 0.1);
+    transition: 0.3s ease;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Efek hover */
+.menu-section .menu-list .menu-item:hover {
+    transform: translateY(-10px);
+    background: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+/* Styling gambar */
+.menu-section .menu-list .menu-item .menu-image {
+    max-width: 80%;
+    aspect-ratio: 1;
+    margin-bottom: 15px;
+    object-fit: contain;
+    border-radius: var(--border-radius-s);
+    transition: 0.3s ease;
+}
+
+/* Efek hover pada gambar */
+.menu-section .menu-list .menu-item:hover .menu-image {
+    transform: scale(1.1);
+}
+
+/* Nama menu */
+.menu-section .menu-list .menu-item .name {
+    margin: 12px 0;
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Deskripsi menu */
+.menu-section .menu-list .menu-item .text {
+    font-size: var(--font-size-m);
+    max-width: 80%;
+}
+
+/* Responsive untuk layar kecil */
+@media screen and (max-width: 900px) {
+    .menu-section .menu-list {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .menu-section .menu-list .menu-item {
+        width: 80%;
+    }
+}
+
+
+/*Responsive media query code for max width 1024px*/
+@media screen and (max-width: 1024px) {
+    .menu-section .menu-list{
+        gap: 60px;
+    }
+
+    .menu-section .menu-list .menu-item{
+        width: calc(100% / 3 - 60px);
+    }
+}
+
+/*Responsive media query code for max width 900px*/
+@media screen and (max-width: 900px) {
+    :root{
+        --font-size-m: 1rem;
+        --font-size-m: 1.3rem;
+        --font-size-l: 1.5rem;
+        --font-size-xl: 1.8rem;
+    }
+
+    .navbar :where(#menu-close-button, #menu-open-button){
+        display: block;
+        font-size: var(--font-size-l);
+    }
+
+    body.show-mobile-menu header::before{
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(5px);
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar #menu-close-button{
+        position: absolute;
+        right: 30px;
+        top: 30px;
+    }
+
+    .navbar #menu-open-button{
+        color: var(--white-color);
+    }
+
+    .navbar .nav-menu{
+        display: block;
+        position: fixed;
+        left: -300px;
+        top: 0;
+        width: 300px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 100px;
+        background: var(--white-color);
+        transition: 0.2s ease;
+    }
+
+    body.show-mobile-menu .navbar .nav-menu{
+        left: 0;
+    }
+
+    .navbar .nav-menu .nav-link{
+        color: var(--dark-color);
+        display: block;
+        margin-top: 17px;
+        font-size: var(--font-size-l);
+    }
+
+    .hero-section .section-content{
+        gap: 50px;
+        text-align: center;
+        padding: 30px 20px 20px; 
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .hero-section .hero-details :is(.subtitle,.description), .about-section .about-details{
+        max-width: 100% ;
+    }
+
+    .hero-section .hero-details .buttons{
+        justify-content: center;
+    }
+
+    .hero-section .hero-image-wrapper{
+        max-width: 270px;
+        margin-right: 0;
+    }
+
+    .about-section .section-content{
+        gap: 70px;
+        flex-direction: column reverse;
+    }
+
+    .about-section .about-image-wrapper .about-image{
+        width: 100%;
+        height: 100%;
+        max-width: 250px;
+        aspect-ratio: 1;
+    }
+
+    .menu-section .menu-list{
+        gap: 30px;
+    }
+
+    .menu-section .menu-list .menu-item{
+        width: calc(100% / 3 - 30px);
+    }
+
+    .menu-section .menu-section .menu-item .menu-image{
+        max-width: 200px;
+    }
+}
+
+@media screen and (max-width: 640px){
+    .menu-section .menu-list .menu-item{
+        gap: 60px;
+    }
+
+    .menu-section .menu-list .menu-item{
+        width: 100%;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <nav class="navbar section-content">
+            <a href="#" class="nav-logo">
+                <h2 class="logo-text">Vibhava Coffee</h2>
+            </a>
+
+            <!-- Menu Open Button (Mobile) -->
+            <button id="menu-open-button" class="menu-button" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="menu-button" aria-label="Close Menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Menu</a></li>
+            </ul>
+            
+            <ul class="nav-menu">
+                <!-- Menu Close Button -->
+                <button id="menu-close-button" class="menu-button" aria-label="Close Menu">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Menu</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="section-content">
+                <div class="hero-details">
+                    <h2 class="title">Best Coffee</h2>
+                    <h3 class="subtitle">Make your day great with our special coffee!</h3>
+                    <p class="description">Welcome to our coffee paradise, where every bean tells a story and every cup sparks joy.</p>
+                    <p class="description">We are open every day, from 8am to 9pm. But for sunday we're open at 8am to 5pm</p>
+                    <p class="description">You can order online by clicking order now or you can contact via Instagram by clicking contact us</p>
+                    <div class="buttons">
+                        <a href="https://gofood.link/a/MSJssab" class="button order-now">Order Now</a>
+                        <a href="https://www.instagram.com/muhammaddaffa1157" class="button contact-us">Contact Us</a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="vibhava logo 2025-02-19 at 17.58.56.jpeg" alt="hero" class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <!--About Section-->
+        <section id="about" class="about-section">
+            <div class="section-content">
+                <div class="about-image wrapper">
+                    <img src="vibhava logo 2025-02-19 at 17.58.56.jpeg" alt="About" class="about-img">
+                </div>
+                <div class="div about-details">
+                    <h2 class="section-title">About Us</h2>
+                    <p class="text">At Vibhava Coffee in Brigif, Cimahi, West Java, Indonesia, we pride ourselves on being a go-to destination for coffee lovers and conversation seekers alike. We're dedicated to providing an exceptional coffee experience in a cozy and inviting atmosphere, where guest can relax, unwind, and enjoy their time in comfort.</p>
+                    <p>For location you can touch the Google logo below</p>
+                    <div class="social link list">
+                        <a href="https://www.instagram.com/muhammaddaffa1157" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://maps.app.goo.gl/rEi1JfaLtzqaaeCCA" target="_blank"><i class="fa-brands fa-google"></i></a>
+                    </div> 
+                </div>
+            </div>
+        </section>
+
+        <!--Menu section-->
+        <section id="menu" class="menu-section">
+            <h2 class="section-title">Our Menu</h2>
+            <div class="section-content">
+                <ul class="menu-list">
+
+                    <li class="menu-item">
+                        <img src="hot coffee.jpg" alt="Hot Coffee" class="menu-image">
+                        <h3 class="name">Hot Coffee</h3>
+                        <ul class="submenu">
+                            <li>Americano</li>
+                            <li>Long Black</li>
+                            <li>Cappuccino Hot</li>
+                            <li>Vanilla Hot Coffee Latte</li>
+                            <li>Caramel Hot Coffee Latte</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="menu-item">
+                        <img src="ice coffee.jpeg" alt="Ice Coffee" class="menu-image">
+                        <h3 class="name">Ice Coffee</h3>
+                        <ul class="submenu">
+                            <li>Ice Cappuccino</li>
+                            <li>Hazelnut Latte</li>
+                            <li>Vanilla Latte</li>
+                            <li>Caramel Latte</li>
+                            <li>Coffee Latte</li>
+                            <li>Caramel Macchiato</li>
+                            <li>Brown Sugar Coffee</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="menu-item">
+                        <img src="milky.jpeg" alt="Milky Beverages" class="menu-image">
+                        <h3 class="name">Milky Beverages</h3>
+                        <ul class="submenu">
+                            <li>Chocolate Milky</li>
+                            <li>Strawberry Milky</li>
+                            <li>Blueberry Milky</li>
+                            <li>Nanas Milky</li>
+                            <li>Matcha Latte</li>
+                            <li>Thai Tea</li>
+                            <li>Brown Sugar Boba</li>
+                            <li>Milo Lava</li>
+                            <li>Caramel Pop Corn</li>
+                            <li>Milk Tea Boba</li>
+                            <li>Es Teler Hallo Dek</li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <img src="Yakult.jpeg" alt="Yakult Base" class="menu-image">
+                        <h3 class="name">Yakult Base</h3>
+                        <ul class="submenu">
+                            <li>Ice Pineapple Yakult</li>
+                            <li>Ice Lemon Yakult</li>
+                            <li>Ice Lychee Yakult</li>
+                            <li>Ice Kiwi Yakult</li>
+                            <li>Ice Mango Yakult</li>
+                            <li>Ice Melon Yakult</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="menu-item">
+                        <img src="sparkling.jpeg" alt="Sparkling Beverages" class="menu-image">
+                        <h3 class="name">Sparkling Beverages</h3>
+                        <ul class="submenu">
+                            <li>Sparkling Pineapple Squash</li>
+                            <li>Sparkling Lemon Squash</li>
+                            <li>Sparkling Lychee Squash</li>
+                            <li>Sparkling Kiwi Squash</li>
+                            <li>Sparkling Mango Squash</li>
+                            <li>Sparkling Melon Squash</li>
+                            <li>Lemonade</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="menu-item">
+                        <img src="tea.jpeg" alt="Tea" class="menu-image">
+                        <h3 class="name">Tea</h3>
+                        <ul class="submenu">
+                            <li>Tropical Lychee Tea</li>
+                            <li>Tropical Green Tea</li>
+                            <li>Tropical Lemon Tea</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="menu-item">
+                        <img src="meals.jpeg" alt="Meals and Noodles" class="menu-image">
+                        <h3 class="name">Meals and Noodles</h3>
+                        <ul class="submenu">
+                            <li>Friench Fries</li>
+                            <li>Basreng Chili Oil</li>
+                            <li>Pisang Bakar</li>
+                            <li>Sozis Bakar</li>
+                            <li>Friench Fries + Sozis Bakar</li>
+                            <li>Rujak Cireng</li>
+                            <li>Miegora (Mie Goreng Tempura)</li>
+                            <li>Miegochiwing (Mie Goreng Chicken Wings)</li>
+                            <li>Miegodang (Mie Goreng Lumpia Udang)</li>
+                            <li>Miegoyam (Mie Goreng Lumpia Ayam)</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="menu-item">
+                        <img src="dimsum.jpeg" alt="Dimsum" class="menu-image">
+                        <h3 class="name">Dimsum Kukus</h3>
+                        <ul class="submenu">
+                            <li>Siomay Mentai Seuhah</li>
+                            <li>Siomay Udang Mentai</li>
+                            <li>Nori Ayam Mentai Seuhah</li>
+                            <li>Nori Ayam</li>
+                            <li>Siomay Udang</li>
+                            <li>Siomay Ayam</li>
+                            <li>Siomay Kepiting</li>
+                            <li>Siomay Ayam Mozzarella</li>
+                            <li>Lumpia Ayam Kulit Tahu</li>
+                            <li>Lumpia Udang Kulit Tahu</li>
+                            <li>Ekado Telur Puyuh</li>
+                            <li>Hisitkau Udang</li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <img src="dimsum.jpeg" alt="Dimsum" class="menu-image">
+                        <h3 class="name">Dimsum Goreng</h3>
+                        <ul class="submenu">
+                            <li>Lumpia Udang Goreng</li>
+                            <li>Lumpia Ayam Goreng</li>
+                            <li>Ekado Telur Puyuh Goreng</li>
+                            <li>Spicy Wings</li>
+                            <li>Tempura Ayam</li>
+                            <li>Kumis Naga</li>
+                            <li>Karage Ayam</li>
+                            <li>Wonton Udang</li>
+                            
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>        
+    </main>
+
+    <script>const menuOpenButton = document.querySelector("#menu-open-button");
+        const menuCloseButton = document.querySelector("#menu-close-button");
+        const navMenu = document.querySelector(".nav-menu");
+        
+        menuOpenButton.addEventListener("click", () => {
+            navMenu.classList.add("show");
+        });
+        
+        menuCloseButton.addEventListener("click", () => {
+            navMenu.classList.remove("show");
+        });
+        </script>
+
+</body>
+</html>
